@@ -6,12 +6,20 @@ class Vehicle:
   def __init__(self, bodyStyle):
     self.bodyStyle = bodyStyle
 
+  def drive(self, speed):
+    self.mode = 'driving'
+    self.speed = speed
+
 class Car(Vehicle):
   def __init__(self, engineType):
     super().__init__("Car")
     self.wheels = 4
     self.doors = 4
     self.engineType = engineType
+
+  def drive(self, speed):
+    super().drive(speed)
+    print(f"Driving my motocycle {self.engineType} Car at {self.speed}")
 
 class Motorcycle(Vehicle):
   def __init__(self, engineType, hassidecar):
@@ -23,8 +31,14 @@ class Motorcycle(Vehicle):
 
     self.doors = 0
     self.engineType = engineType
+  def drive(self, speed):
+    super().drive(speed)
+    print(f"Driving my motocycle {self.engineType} Car at {self.speed}")
 
 car1 = Car('gas')
 car2 = Car('electric')
 mc1 = Motorcycle('gas', True)
+
+car1.drive(3)
+
 
